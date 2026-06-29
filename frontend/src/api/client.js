@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const client = axios.create({ baseURL: '' })
+const client = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL || '' })
 
 // ---- Path ----
 export async function normalizePath(asPath) {
