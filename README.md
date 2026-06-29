@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="ASPathLens.png" width="180" alt="ASPathLens Logo">
+  <img src="ASPathLens.png" width="300" alt="ASPathLens Logo">
 </p>
 
 <h1 align="center">ASPathLens</h1>
