@@ -27,7 +27,7 @@ export default function App() {
     { to: '/dataset', key: 'nav.dataset' },
     { to: '/dataset-diff', key: 'nav.datasetDiff' },
     { to: '/examples', key: 'nav.examples' },
-    { to: '/api', key: 'nav.api' },
+    { to: '/api-docs', key: 'nav.api' },
   ]
 
   return (
@@ -71,7 +71,7 @@ export default function App() {
             <Route path="/dataset-diff" element={<DatasetDiff />} />
             <Route path="/examples" element={<ExampleGallery />} />
             <Route path="/kg" element={<KnowledgeGraph />} />
-            <Route path="/api" element={<APIPlayground />} />
+            <Route path="/api-docs" element={<APIPlayground />} />
           </Routes>
         </main>
       )}

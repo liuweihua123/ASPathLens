@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 # Ensure app is running: backend on 8000, frontend on 3000
-BASE = "http://127.0.0.1:3000"
+BASE = "http://localhost:3000"
 OUT = Path(__file__).resolve().parent / "screenshots"
 os.makedirs(OUT, exist_ok=True)
 
@@ -21,8 +21,8 @@ PAGES = [
     ("dataset-status",  "/dataset",                       1280, 720),
     ("dataset-diff",    "/dataset-diff",                   1280, 720),
     ("knowledge-graph", "/kg",                            1280, 720),
-    ("api-playground",  "/api",                           1280, 720),
-    ("examples",        "/examples",                      1280, 720),
+    ("api-playground",  "/api-docs",                       1280, 720),
+    ("examples",        "/examples",                       1280, 720),
 ]
 
 
@@ -38,10 +38,14 @@ async def main():
             await page.set_viewport_size({"width": w, "height": h})
 
             try:
-                await page.goto(url, wait_until="networkidle", timeout=15000)
+                await page.goto(url, wait_until="networkidle", timeout=12000)
             except Exception:
-                await page.goto(url, wait_until="domcontentloaded", timeout=15000)
-                await page.wait_for_timeout(1500)
+                try:
+                    await page.goto(url, wait_until="domcontentloaded", timeout=12000)
+                    await page.wait_for_timeout(2500)
+                except Exception:
+                    print(f"  SKIP (timeout/error): {url}")
+                    continue
 
             # Auto-trigger analysis on Path Analyzer / Diff pages
             if path == "/analyzer":
