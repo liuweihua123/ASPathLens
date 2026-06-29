@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aspathlens"
+version = "0.1.0"
+description = "Relationship-aware AS path analyzer for BGP policy research"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110.0",
+  "uvicorn[standard]>=0.27.0",
+  "pydantic>=2.6.0",
+  "pydantic-settings>=2.2.0",
+  "requests>=2.31.0",
+  "pandas>=2.2.0",
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+]
+
+[project.scripts]
+aspathlens = "app.cli.main:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

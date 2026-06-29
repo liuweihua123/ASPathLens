@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data (large downloads)
+backend/data/raw/**/*.bz2
+backend/data/raw/**/*.gz
+backend/data/processed/
+backend/data/tmp/*
+!backend/data/tmp/.gitkeep
+backend/data/cache/*
+!backend/data/cache/.gitkeep
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Logs
+logs/
+*.log
+
+# SQLite
+*.db
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
