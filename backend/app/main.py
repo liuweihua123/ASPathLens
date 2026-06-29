@@ -13,7 +13,10 @@ from app.state import data_store
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    init_db()
+    try:
+        init_db()
+    except Exception:
+        print("[ASPathLens] SQLite init skipped (read-only environment)")
     data_store.reload_from_disk()
     print(
         f"[ASPathLens] asrel edges: {data_store.asrel.stats.edge_count if data_store.asrel else 0}, "

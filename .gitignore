@@ -12,6 +12,8 @@ htmlcov/
 # Data (large downloads)
 backend/data/raw/**/*.bz2
 backend/data/raw/**/*.gz
+!backend/data/raw/as_relationship/*.bz2
+!backend/data/raw/as_org/*.gz
 backend/data/processed/
 backend/data/tmp/*
 !backend/data/tmp/.gitkeep
