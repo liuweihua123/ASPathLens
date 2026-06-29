@@ -2,17 +2,21 @@
   "builds": [
     {
       "src": "backend/api/index.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.11",
+        "installCommand": "pip install -r backend/requirements.txt"
+      }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "backend/api/index.py"
+      "source": "/api/(.*)",
+      "destination": "/backend/api/index.py"
     },
     {
-      "src": "/(.*)",
-      "dest": "backend/api/index.py"
+      "source": "/(.*)",
+      "destination": "/backend/api/index.py"
     }
   ]
 }
