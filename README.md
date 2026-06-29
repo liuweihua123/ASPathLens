@@ -1,32 +1,33 @@
 <table>
 <tr>
-<td width="35%" align="center">
-  <img src="ASPathLens.png" width="280" alt="ASPathLens Logo">
-</td>
-<td width="65%">
+<td width="50%">
 
+<img src="ASPathLens.png" width="48" alt="ASPathLens Logo" align="left">
 <h1>ASPathLens</h1>
 
-**A relationship-aware AS path analyzer & lightweight knowledge graph for BGP policy research.**
+A relationship-aware AS path analyzer & lightweight knowledge graph for BGP policy research.
 
-<a href="#aspathlens-中文"><img src="https://img.shields.io/badge/简体中文-blue?style=flat-square" alt="中文"></a>
-<a href="#"><img src="https://img.shields.io/badge/English-white?style=flat-square" alt="English"></a>
 <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=white" alt="React">
 <img src="https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">
 <img src="https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite">
 <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
 <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License">
-<img src="https://img.shields.io/github/stars/liuweihua123/ASPathLens?style=flat-square&logo=github" alt="Stars">
+<br><br>
 
-[Quick Start](#quick-start) · [Features](#features) · [API](#-api-reference) · [Architecture](#-architecture) · [中文](#aspathlens-中文)
+<a href="https://github.com/liuweihua123/ASPathLens/stargazers"><img src="https://img.shields.io/github/stars/liuweihua123/ASPathLens?style=for-the-badge&logo=github&label=Star" alt="Star"></a>
+<a href="#quick-start"><img src="https://img.shields.io/badge/🚀_Quick_Start-blue?style=for-the-badge" alt="Quick Start"></a>
+<a href="#features"><img src="https://img.shields.io/badge/✨_Features-orange?style=for-the-badge" alt="Features"></a>
+<br>
+<a href="#-api-reference"><img src="https://img.shields.io/badge/🔌_API-47A248?style=for-the-badge" alt="API"></a>
+<a href="#aspathlens-中文"><img src="https://img.shields.io/badge/🌐_中文-0078D4?style=for-the-badge" alt="中文"></a>
+<a href="https://github.com/liuweihua123/ASPathLens"><img src="https://img.shields.io/badge/📂_GitHub-black?style=for-the-badge&logo=github" alt="GitHub"></a>
 
+</td>
+<td width="50%" align="center">
+  <img src="docs/screenshots/%E9%A6%96%E9%A1%B5.gif" width="100%" alt="ASPathLens Demo">
 </td>
 </tr>
 </table>
-
-<p align="center">
-  <img src="docs/screenshots/%E9%A6%96%E9%A1%B5.gif" width="100%" alt="ASPathLens Demo">
-</p>
 
 ---
 
