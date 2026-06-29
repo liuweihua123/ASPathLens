@@ -1,6 +1,8 @@
 <p align="center">
-  <img src="docs/screenshots/%E9%A6%96%E9%A1%B5.gif" width="100%" alt="ASPathLens Demo">
+  <img src="ASPathLens.png" width="180" alt="ASPathLens Logo">
 </p>
+
+<h1 align="center">ASPathLens</h1>
 
 <p align="center">
   <strong>A relationship-aware AS path analyzer & lightweight knowledge graph for BGP policy research.</strong>
@@ -26,6 +28,10 @@
   <a href="#-api-reference">API</a> ·
   <a href="#-architecture">Architecture</a> ·
   <a href="#aspathlens-中文">中文</a>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/%E9%A6%96%E9%A1%B5.gif" width="100%" alt="ASPathLens Demo">
 </p>
 
 ---
