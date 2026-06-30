@@ -12,20 +12,25 @@ import requests
 BACKEND = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(BACKEND))
 
-from app.config import ASREL_LATEST_EXAMPLE, ASREL_RAW_DIR, TMP_DIR
+from app.config import ASREL_RAW_DIR, TMP_DIR
+from scripts.caida_release import latest_asrel_url
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--url", default=ASREL_LATEST_EXAMPLE)
+    parser.add_argument("--url", default="")
     args = parser.parse_args()
+    url = args.url or latest_asrel_url()
     ASREL_RAW_DIR.mkdir(parents=True, exist_ok=True)
     TMP_DIR.mkdir(parents=True, exist_ok=True)
-    name = args.url.rstrip("/").split("/")[-1]
+    name = url.rstrip("/").split("/")[-1]
     tmp = TMP_DIR / name
     dest = ASREL_RAW_DIR / name
-    print(f"Downloading {args.url} ...")
-    r = requests.get(args.url, stream=True, timeout=600)
+    if dest.exists():
+        print(f"Latest ASRelationship already present: {dest.name}")
+        return
+    print(f"Downloading {url} ...")
+    r = requests.get(url, stream=True, timeout=600)
     r.raise_for_status()
     with open(tmp, "wb") as f:
         for chunk in r.iter_content(1024 * 1024):

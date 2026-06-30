@@ -5,14 +5,29 @@ on:
     - cron: "0 18 1 * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - run: pip install -r backend/requirements.txt
       - run: python backend/scripts/update_all.py
-        continue-on-error: true
+      - name: Commit updated datasets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- backend/data/raw; then
+            echo "No dataset changes to commit."
+            exit 0
+          fi
+          git add backend/data/raw
+          git commit -m "Update CAIDA datasets"
+          git push origin master

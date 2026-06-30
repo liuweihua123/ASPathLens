@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from app.config import ASORG_RAW_DIR, ASREL_RAW_DIR, get_settings
@@ -12,8 +13,16 @@ from app.services.asrank_client import asrank_health_check
 def _find_latest_file(directory: Path, pattern: str) -> Path | None:
     if not directory.exists():
         return None
-    files = sorted(directory.glob(pattern), key=lambda p: p.stat().st_mtime, reverse=True)
-    return files[0] if files else None
+    files = list(directory.glob(pattern))
+    if not files:
+        return None
+
+    def key(path: Path) -> tuple[str, float]:
+        match = re.search(r"(\d{8})", path.name)
+        version = match.group(1) if match else ""
+        return (version, path.stat().st_mtime)
+
+    return max(files, key=key)
 
 
 def get_dataset_status(asrel=None, as2org=None) -> dict:

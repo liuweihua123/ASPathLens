@@ -12,22 +12,25 @@ import requests
 BACKEND = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(BACKEND))
 
-from app.config import AS2ORG_LATEST_URL, ASORG_RAW_DIR, TMP_DIR
+from app.config import ASORG_RAW_DIR, TMP_DIR
+from scripts.caida_release import latest_as2org_url
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--url", default=AS2ORG_LATEST_URL)
+    parser.add_argument("--url", default="")
     args = parser.parse_args()
+    url = args.url or latest_as2org_url()
     ASORG_RAW_DIR.mkdir(parents=True, exist_ok=True)
     TMP_DIR.mkdir(parents=True, exist_ok=True)
-    name = "latest.as-org2info.txt.gz"
-    if "202" in args.url:
-        name = args.url.rstrip("/").split("/")[-1]
+    name = url.rstrip("/").split("/")[-1]
     tmp = TMP_DIR / name
     dest = ASORG_RAW_DIR / name
-    print(f"Downloading {args.url} ...")
-    r = requests.get(args.url, stream=True, timeout=600)
+    if dest.exists():
+        print(f"Latest AS2Org already present: {dest.name}")
+        return
+    print(f"Downloading {url} ...")
+    r = requests.get(url, stream=True, timeout=600)
     r.raise_for_status()
     with open(tmp, "wb") as f:
         for chunk in r.iter_content(1024 * 1024):
