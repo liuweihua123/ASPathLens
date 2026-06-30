@@ -1,11 +1,20 @@
 <h1 align="center">ASPathLens</h1>
 
 <p align="center">
-  <img src="ASPathLens.png" width="300" alt="ASPathLens Logo">
+  <img src="ASPathLens.png" width="420" alt="ASPathLens Logo">
 </p>
 
 <p align="center">
   A relationship-aware AS path analyzer & lightweight knowledge graph for BGP policy research.
+</p>
+
+<p align="center">
+  <strong>Live Demo:</strong>
+  <a href="https://liuweihua123.github.io/ASPathLens/">Frontend</a>
+  ·
+  <a href="https://aspathlens-2.onrender.com/docs">API Docs</a>
+  ·
+  <a href="https://aspathlens-2.onrender.com/api/dataset/status">Dataset Status</a>
 </p>
 
 <p align="center">
