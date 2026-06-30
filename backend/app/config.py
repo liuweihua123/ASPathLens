@@ -46,7 +46,11 @@ class Settings(BaseSettings):
 
     app_name: str = "ASPathLens"
     debug: bool = False
-    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
+    cors_origins: str = (
+        "http://localhost:5173,"
+        "http://127.0.0.1:5173,"
+        "https://liuweihua123.github.io"
+    )
     admin_token: str = ""  # optional for POST /api/dataset/update
     active_asrel_version: str = ""
     active_as2org_version: str = ""
